@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  playground_api:
+    container_name: tigg_playground_api
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: 110278083494.dkr.ecr.ap-south-1.amazonaws.com/dev-tigg-pos:tigg_playground_api_uat
+    ports:
+      - '8090:80'
+    networks:
+      - tigg-pos
+    restart: unless-stopped
+
+networks:
+  tigg-pos:
