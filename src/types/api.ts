@@ -31,7 +31,7 @@ export interface Endpoint {
   category: string;
   parameters?: Parameter[];
   pathParams?: Parameter[];
-  requestBody?: any;
+  requestBody?: SchemaObject;
   responseExamples?: ResponseExample[];
 }
 
