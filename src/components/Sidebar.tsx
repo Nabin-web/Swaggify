@@ -150,7 +150,7 @@ export const Sidebar = memo(
                   )}
                 >
                   <FileText className="h-4 w-4" />
-                  <span className="text-sm">Tigg API Documentation</span>
+                  <span className="text-sm">Swaggify Documentation</span>
                 </button>
               </div>
               <div className="pb-2">

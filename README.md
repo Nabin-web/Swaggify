@@ -1,4 +1,4 @@
-# Welcome to Tigg API project
+# Welcome to Swaggify project
 
 Follow these steps:
 

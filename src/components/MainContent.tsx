@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, memo, useEffect } from "react";
+import React, { useState, useCallback, useMemo, memo, useEffect } from "react";
 import { FileText, ArrowLeft } from "lucide-react";
 import { Endpoint, ApiResponse } from "../types/api";
 import { SchemaObject } from "../types/openapi";
@@ -11,7 +11,6 @@ import { SchemaViewer } from "./SchemaViewer";
 import { apiService } from "../services/apiService";
 import { cn } from "@/lib/utils";
 import { useApiContext } from "../contexts/ApiContext";
-import ReactJsonViewer from "./ReactJsonViewer";
 
 interface MainContentProps {
   endpoint: Endpoint | null;
@@ -33,18 +32,16 @@ const DocumentationContent = memo(() => (
   <div className="flex-1 flex flex-col bg-background h-screen overflow-hidden">
     {/* Header */}
     <div className="border-b border-border p-6 flex-shrink-0">
-      <h1 className="text-l font-semibold text-primary">
-        Tigg API Documentation
-      </h1>
+      <h1 className="text-l font-semibold text-primary">Documentation</h1>
       <p className="text-sm text-muted-foreground mt-2">
-        Comprehensive guide for using the Tigg API platform
+        Comprehensive guide for using the Swaggify platform
       </p>
     </div>
 
     {/* Documentation Content */}
     <div className="flex-1 overflow-y-auto p-6 space-y-8">
       <div className="bg-muted/30 rounded-lg p-6">
-        <h3 className="text-lg font-semibold mb-4 text-primary">Tigg API</h3>
+        <h3 className="text-lg font-semibold mb-4 text-primary">Swaggify</h3>
         <p className="text-sm text-foreground mb-4">
           Tigg Open Platform provides an API testing tool named "API Explorer"
           for you to test the APIs on the platform.
@@ -204,7 +201,7 @@ const DocumentationContent = memo(() => (
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 underline"
         >
           <FileText className="h-4 w-4" />
-          View Full Tigg API Documentation
+          View Full Swaggifyocumentation
         </a>
       </div>
     </div>

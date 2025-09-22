@@ -81,7 +81,7 @@ const Apis = memo(() => {
       {/* Header */}
       <div className="border-b border-border p-6 flex-shrink-0">
         <h1 className="text-lg font-semibold text-primary">
-          Welcome to Tigg API
+          Welcome to Swaggify
         </h1>
         {/* <p className="text-muted-foreground mt-2">
           Select an endpoint from the sidebar to start testing

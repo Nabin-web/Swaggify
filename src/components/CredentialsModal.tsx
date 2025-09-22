@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Key, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,6 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { authCookies } from "@/utils/auth-cookies";
+import { Link } from "lucide-react";
 
 interface CredentialsModalProps {
   onCredentialsSet: (hasCredentials: boolean) => void;
@@ -21,10 +21,8 @@ export const CredentialsModal = ({
   onCredentialsSet,
   hasCredentials,
 }: CredentialsModalProps) => {
-  const [clientId, setClientId] = useState("");
-  const [clientSecret, setClientSecret] = useState("");
   const [baseUrl, setBaseUrl] = useState("");
-  const [showSecret, setShowSecret] = useState(false);
+  const [isBaseUrl, setIsBaseUrl] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -39,10 +37,10 @@ export const CredentialsModal = ({
   }, [onCredentialsSet]);
 
   const handleSaveCredentials = () => {
-    if (clientId.trim() && clientSecret.trim()) {
-      authCookies.setCredentials(clientId.trim(), clientSecret.trim());
+    if (baseUrl.trim()) {
       localStorage.setItem("base_url", baseUrl);
       onCredentialsSet(true);
+      setIsBaseUrl(true);
       setOpen(false);
     }
   };
@@ -51,6 +49,7 @@ export const CredentialsModal = ({
     authCookies.clearCredentials();
     setBaseUrl("");
     onCredentialsSet(false);
+    setIsBaseUrl(false);
   };
 
   return (
@@ -63,15 +62,11 @@ export const CredentialsModal = ({
             hasCredentials ? "text-primary" : "text-muted-foreground"
           }`}
         >
-          <Key className="h-4 w-4" />
+          <Link className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Key className="h-5 w-5" />
-          </DialogTitle>
-        </DialogHeader>
+        <DialogHeader></DialogHeader>
 
         <div className="space-y-4">
           <div className="space-y-2">
@@ -89,13 +84,13 @@ export const CredentialsModal = ({
           <div className="flex gap-2">
             <Button
               onClick={handleSaveCredentials}
-              disabled={!clientId.trim() || !clientSecret.trim()}
+              disabled={!baseUrl.trim()}
               className="flex-1"
             >
-              {baseUrl ? "Update" : "Save"}
+              {isBaseUrl ? "Update" : "Save"}
             </Button>
 
-            {baseUrl && (
+            {isBaseUrl && (
               <Button
                 variant="outline"
                 onClick={handleClearCredentials}
@@ -106,7 +101,7 @@ export const CredentialsModal = ({
             )}
           </div>
 
-          {baseUrl && (
+          {isBaseUrl && (
             <div className="text-center text-sm text-green-600 bg-green-50 p-2 rounded">
               Credentials saved successfully
             </div>

@@ -5,20 +5,18 @@ const ApiDocs = memo(() => {
     <div className="flex-1 flex flex-col bg-background h-full overflow-hidden">
       {/* Header */}
       <div className="border-b border-border p-6 flex-shrink-0">
-        <h1 className="text-2xl font-semibold text-primary">
-          Tigg API Documentation
-        </h1>
+        <h1 className="text-2xl font-semibold text-primary">Documentation</h1>
         <p className="text-sm text-muted-foreground mt-2">
-          Comprehensive guide for using the Tigg API platform
+          Comprehensive guide for using the Swaggify platform
         </p>
       </div>
 
       {/* Documentation Content */}
       <div className="flex-1 overflow-y-auto px-6 pb-6 ">
         <div className="bg-muted/30 rounded-lg p-4 text-sm">
-          <h3 className="text-lg font-semibold mb-4 text-primary">Tigg API</h3>
+          <h3 className="text-lg font-semibold mb-4 text-primary">Swaggify</h3>
           <p className="text-sm text-foreground mb-4">
-            Tigg API is an interactive playground for exploring and testing all
+            Swaggify is an interactive playground for exploring and testing all
             available accounting-related endpoints within the Tigg platform. It
             enables developers and partners to seamlessly integrate into their
             applications. Whether you are building a mobile app, web
